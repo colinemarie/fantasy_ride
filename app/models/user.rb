@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reservations
   has_many :vehicles, dependent: :destroy
+  has_many :reservations_as_owner, through: :vehicles, source: :reservations
   validates :first_name, :last_name, :age, presence: true
 end
