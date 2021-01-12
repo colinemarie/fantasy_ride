@@ -21,7 +21,7 @@ carpet = Vehicle.new(name: "Aladdin's Magic Carpet", category: 'air', price_per_
                      address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
 carpet.user = jafar
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483257/fantasy-ride/aladdin_carpet_r1csko.jpg')
-carpet.photo.attach(io: file, filename: 'carpet.png', content_type: 'image/png')
+carpet.photos.attach(io: file, filename: 'carpet.png', content_type: 'image/png')
 carpet.save!
 puts 'carpet created'
 
