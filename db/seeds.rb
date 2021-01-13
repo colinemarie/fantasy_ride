@@ -1,9 +1,9 @@
 require 'open-uri'
 
 puts 'cleaning'
+Reservation.destroy_all
 User.destroy_all
 Vehicle.destroy_all
-Reservation.destroy_all
 
 puts 'adding users...'
 
@@ -71,20 +71,22 @@ puts 'vehicles done'
 puts 'adding reservations...'
 
 start_date = Date.new(2021, 2, 15)
-end_date = start_date += 2
+end_date = start_date + 2
 reservation1 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation1.vehicle = carpet
 reservation1.total_price = (reservation1.vehicle.price_per_day ) * 2
 reservation1.user = myriam
+reservation1.save!
 
 puts 'one reservation done'
 
 start_date = Date.new(2021, 1, 18)
-end_date = start_date += 6
+end_date = start_date + 6
 reservation2 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation2.vehicle = drogon
-reservation1.total_price = (reservation1.vehicle.price_per_day ) * 6
+reservation2.total_price = (reservation2.vehicle.price_per_day ) * 6
 reservation2.user = steven
+reservation2.save!
 
 puts 'two reservations done'
 
