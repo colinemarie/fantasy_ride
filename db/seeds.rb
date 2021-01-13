@@ -31,7 +31,7 @@ titanic = Vehicle.new(name: "Titanic", category: 'sea', price_per_day: 49999,
                      address: 'Port de Brest', capacity: 3300, minimum_age: 25)
 titanic.user = steven
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483441/fantasy-ride/titanic-the-unsinkable-ship_ehzbio.jpg')
-titanic.photo.attach(io: file, filename: 'titanic.png', content_type: 'image/png')
+titanic.photos.attach(io: file, filename: 'titanic.png', content_type: 'image/png')
 titanic.save!
 puts 'titanic created'
 
@@ -41,7 +41,7 @@ bike = Vehicle.new(name: "Eliott's'bicycle", category: 'air', price_per_day: 900
                      address: 'California', capacity: 1, minimum_age: 12)
 bike.user = steven
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483265/fantasy-ride/et_bike_ihcu61.jpg')
-bike.photo.attach(io: file, filename: 'bike.png', content_type: 'image/png')
+bike.photos.attach(io: file, filename: 'bike.png', content_type: 'image/png')
 bike.save!
 puts 'ET bike created'
 
@@ -51,7 +51,7 @@ dolorean = Vehicle.new(name: "Dolorean", category: 'time', price_per_day: 4698,
                      address: 'California', capacity: 1, minimum_age: 12)
 dolorean.user = steven
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483261/fantasy-ride/delorean_dmc-12_um2xt1.jpg')
-dolorean.photo.attach(io: file, filename: 'dolorean.png', content_type: 'image/png')
+dolorean.photos.attach(io: file, filename: 'dolorean.png', content_type: 'image/png')
 dolorean.save!
 puts 'dolorean created'
 
@@ -61,7 +61,7 @@ drogon = Vehicle.new(name: "Drogon", category: 'air', price_per_day: 4698,
                      address: 'Parallel world', capacity: 2, minimum_age: 25)
 drogon.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610485781/fantasy-ride/dragon-got_ktaiuy.jpg')
-drogon.photo.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
+drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
 drogon.save!
 puts 'drogon created'
 
@@ -75,7 +75,7 @@ end_date = start_date += 2
 reservation1 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation1.vehicle = carpet
 reservation1.total_price = (reservation1.vehicle.price_per_day ) * 2
-reservation1.user = Myriam
+reservation1.user = myriam
 
 puts 'one reservation done'
 
