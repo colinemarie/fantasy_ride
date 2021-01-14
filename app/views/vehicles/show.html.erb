@@ -1,0 +1,29 @@
+<h1><%= @vehicle.name %></h1>
+
+<div class= first-card-info>
+  <div class= price-card><p><%= @vehicle.price_per_day %> € / par jour</p></div>
+  <div class= category-label><p><%= @vehicle.category %></p></div>
+</div>
+
+<div class= photo-vehicle>
+  <p><%= @vehicle.photos %></p>
+</div>
+
+<div class= description-card>
+  <h2>Description</h2>
+  <p><%= @vehicle.description %></p>
+</div>
+
+<div class= vehicle-detail-card>
+  <h2>Information</h2>
+  <p>Propriétaire : <%= @vehicle.user %></p>
+  <p>Location : <%= @vehicle.address %></p>
+  <p>Capacity : <%= @vehicle.capacity %> pers.</p>
+  <p>Minimum age : <%= @vehicle.minimum_age %> ans</p>
+</div>
+
+<div class= btn-card-vehicle>
+  <%= link_to "Book now", "#", class: "btn btn-primary" %>
+</div>
+
+
