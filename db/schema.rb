@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_14_083207) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+<<<<<<< HEAD
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_01_14_083207) do
     t.bigint "vehicle_id", null: false
   end
 
+=======
+>>>>>>> master
   create_table "reservations", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
