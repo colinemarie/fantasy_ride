@@ -1,4 +1,4 @@
 class CategoryVehicle < ApplicationRecord
-  has_one :vehicle
-  has_one :category
+  belongs_to :vehicle
+  belongs_to :category
 end
