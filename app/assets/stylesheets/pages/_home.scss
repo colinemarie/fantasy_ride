@@ -1,1 +1,43 @@
 // Specific CSS for your home-page
+body {
+  background-color: #D9DBE9;
+}
+
+#category-section {
+height: 100vh;
+}
+
+// .banner {
+//   margin: 0 auto;
+//   display: flex;
+//   padding: 60px;
+//   color: white;
+//   font-size: 30px;
+//   background-image: url('https://source.unsplash.com/lCTfOwSi27E/1600x900');
+//   height: 100vh;
+//   object-fit: contain;
+//   margin: auto;
+// }
+
+h1 {
+  color: black;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.container {
+  padding-top: 100px;
+}
+
+.category-card{
+  width: 50px;
+  height: 50px;
+}
+.card-img-top {
+  object-fit: contain;
+}
+
+.btn {
+  margin-left: 20px;
+  margin-right: 20px;
+}
