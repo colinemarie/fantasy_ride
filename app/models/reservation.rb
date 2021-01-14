@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :vehicle
-  belongs_to :user_as_owner, through: :vehicles, source: :users
+  has_one :user_as_owner, through: :vehicles, source: :user
   validates :start_date, :end_date, presence: true
   validate :end_date_is_after_start_date
 
