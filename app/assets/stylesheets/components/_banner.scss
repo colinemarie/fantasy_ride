@@ -4,10 +4,16 @@
   padding: 60px;
   color: white;
   font-size: 30px;
-  background-image: url('https://source.unsplash.com/lCTfOwSi27E/1600x900');
-  height: 100vh;
-  object-fit: contain;
+  background-image: url('https://source.unsplash.com/hqRZUhvsPtU/1600x900');
+  // height: 100vh;
+  // object-fit: cover;
   margin: auto;
+  width: 100%;
+  height: 95vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .banner h1 {
@@ -20,5 +26,29 @@
 
 .banner .container {
   padding-top: 100px;
+}
+
+.searchbar {
+  border-radius: 10px;
+  background-color: #EFF0F6;
+  border: none;
+}
+
+input[type="text"] {
+  font-family: Poppins;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.input-button {
+  padding: 6.5px 20px;
+  border: 2px solid lightgrey;
+  background-color: transparent;
+  color: lightgrey;
+  border-radius: 50%;
+}
+.button:hover  {
+background-color:transparent;
+color:black;
 }
 
