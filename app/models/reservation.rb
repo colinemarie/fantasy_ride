@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
   belongs_to :vehicle
   has_one :user_as_owner, through: :vehicles, source: :user
   validates :start_date, :end_date, presence: true
-  validates :status, inclusion: { in: %w[pending accepted refused] }
+  validates :status, inclusion: { in: %w[pending accepted refused cancelled] }
   validate :end_date_is_after_start_date
 
   private
