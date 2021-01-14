@@ -1,0 +1,54 @@
+.title-vehicle {
+ display: flex;
+}
+
+h1 {
+  color: #14142B;
+  font-size: 32px;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.first-card-info {
+  display: flex;
+  align-items: centers;
+}
+
+.price-card {
+  padding-left: 50px;
+  font-style: italic;
+}
+
+.photo-vehicle {
+  padding-left : 50px;
+}
+
+.category-label {
+  background-color: #5F2EEA;
+  color: white;
+  font-size: 14px;
+  width: 50px;
+  height: 25px;
+  text-align: center;
+  border-radius: 10px;
+  font-style: italic;
+}
+
+.description-card {
+  padding-left: 50px;
+  text-align: justify;
+}
+
+.vehicle-detail-card {
+  background-color: white;
+  width: 500px;
+  padding-left: 50px;
+  padding-top: 10px;
+  border-radius: 3px;
+
+}
+
+.btn-card-vehicle {
+  padding-left: 25px;
+}
+
