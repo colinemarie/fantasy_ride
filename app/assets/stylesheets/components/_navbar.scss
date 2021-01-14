@@ -16,11 +16,28 @@
   image: url(/../../images/logo-gras.png);
 }
 
-.body {
+body {
   font-family: Poppins;
   color: #333333;
 }
 
 .no-border {
   border-color: white;
+}
+
+.searchbar {
+  border-radius: 10px;
+  background-color: #EFF0F6;
+}
+
+input[type="text"] {
+  font-family: Poppins;
+  font-size: 25px;
+  padding: 10px;
+}
+
+#sticky {
+  position: sticky;
+  top: 0px;
+  z-index: 100;
 }
