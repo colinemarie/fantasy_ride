@@ -1,0 +1,32 @@
+<h1><%= @vehicle.name %></h1>
+
+
+<p><%= @vehicle.category %></p>
+<p><%= @vehicle.description %></p>
+<p><%= @vehicle.price_per_day %></p>
+<p><%= @vehicle.address %></p>
+<p><%= @vehicle.capacity %></p>
+<p><%= @vehicle.minimum_age %></p>
+<p><%= @vehicle.user %></p>
+<p><%= @vehicle.photos %></p>
+
+<!-- Elements manquants :
+- owner (through user id)
+- reviews
+- rate
+ -->
+
+<%= simple_form_for [user, vehicle] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :date %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
+
+COMMENTAIRES
+
+<%= simple_form_for @user, url: examples_vertical_path do |f| %>
+add url ??
+
+
+
