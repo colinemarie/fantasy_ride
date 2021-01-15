@@ -1,4 +1,15 @@
 <div class="container">
+  <div class="input-group mb-3">
+    <%= form_tag vehicles_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control m-3",
+        placeholder: "Find a ride"
+      %>
+      <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+      <%= link_to "Remove filters", vehicles_path, class: "btn btn-outline-black" %>
+    <% end %>
+  </div>
   <div class="content">
     <div class="cards">
       <% @vehicles.each do |vehicle| %>
