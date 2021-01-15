@@ -16,7 +16,7 @@ puts 'users done'
 
 puts 'adding vehicles...'
 
-carpet = Vehicle.new(name: "Aladdin's Magic Carpet", category: 'air', price_per_day: 1200,
+carpet = Vehicle.new(name: "Aladdin's Magic Carpet", price_per_day: 1200,
                      description: 'This Magic Carpet will show you a whole new world, unbelievable sights and an indescribable feeling',
                      address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
 carpet.user = jafar
@@ -26,7 +26,7 @@ carpet.save!
 puts 'carpet created'
 
 
-titanic = Vehicle.new(name: "Titanic", category: 'sea', price_per_day: 49999,
+titanic = Vehicle.new(name: "Titanic", price_per_day: 49999,
                      description: 'Perfect to transport you and your friends safely around the world',
                      address: 'Port de Brest', capacity: 3300, minimum_age: 25)
 titanic.user = steven
@@ -36,7 +36,7 @@ titanic.save!
 puts 'titanic created'
 
 
-bike = Vehicle.new(name: "Eliott's'bicycle", category: 'air', price_per_day: 900,
+bike = Vehicle.new(name: "Eliott's'bicycle", price_per_day: 900,
                      description: 'Join E.T. for a bicycle ride through the nightime sky',
                      address: 'California', capacity: 1, minimum_age: 12)
 bike.user = steven
@@ -46,7 +46,7 @@ bike.save!
 puts 'ET bike created'
 
 
-dolorean = Vehicle.new(name: "Dolorean", category: 'time', price_per_day: 4698,
+dolorean = Vehicle.new(name: "Dolorean", price_per_day: 4698,
                      description: 'Feeling nostalgia for days when partying was authorized? Try the Dolorean for a ride through time',
                      address: 'California', capacity: 1, minimum_age: 12)
 dolorean.user = steven
@@ -56,7 +56,7 @@ dolorean.save!
 puts 'dolorean created'
 
 
-drogon = Vehicle.new(name: "Drogon", category: 'air', price_per_day: 4698,
+drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
                      description: 'If you are into burning entire cities to ashes, you have to try a ride on Drogon',
                      address: 'Parallel world', capacity: 2, minimum_age: 25)
 drogon.user = jon
