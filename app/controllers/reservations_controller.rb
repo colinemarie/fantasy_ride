@@ -20,6 +20,12 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all.where(user: current_user)
   end
 
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to reservations_path
+  end
+
   private
 
   def reservation_params
