@@ -1,21 +1,21 @@
-<h2>YEP!!!!</h2>
-
-<div class="content">
-  <div class="cards">
-    <% @vehicles.each do |vehicle| %>
-      <div class="card-trip">
-        <% vehicle.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, crop: :fill %>
-        <% end %>
-         <%= link_to vehicle_path(vehicle) do %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= vehicle.name %></h2>
-                <h2> <%= vehicle.price_per_day %> € / day </h2>
-              </div>
-            </div>
+<div class="container">
+  <div class="content">
+    <div class="cards">
+      <% @vehicles.each do |vehicle| %>
+        <div class="card-trip">
+          <% vehicle.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill %>
           <% end %>
-        </div>
-      <% end %>
+           <%= link_to vehicle_path(vehicle) do %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= vehicle.name %></h2>
+                  <h2> <%= vehicle.price_per_day %> € / day </h2>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
+</div>
