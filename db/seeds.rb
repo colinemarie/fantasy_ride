@@ -143,12 +143,28 @@ slippers = Vehicle.new(name: "Dorothy's Ruby Slippers", price_per_day: 135,
                       mollit anim id est laborum",
                      address: 'Munchkin Country', capacity: 1, minimum_age: 16)
 slippers.user = jon
-file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610485781/fantasy-ride/dragon-got_ktaiuy.jpg')
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610816806/fantasy-ride/ruby-slippers_qswza2.jpg')
 slippers.photos.attach(io: file, filename: 'slippers.png', content_type: 'image/png')
 slippers.save!
 slippers.categories_vehicles.create!(category: time)
 
 puts 'slippers created'
+
+carriage = Vehicle.new(name: "Cinderella's carriage", price_per_day: 467,
+                     description: "Looking for a prince?
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Near Castle', capacity: 4, minimum_age: 16)
+carriage.user = myriam
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610817452/fantasy-ride/cendrillon_c6ubo0.jpg')
+carriage.photos.attach(io: file, filename: 'carriage.png', content_type: 'image/png')
+carriage.save!
+carriage.categories_vehicles.create!(category: wheels)
+
+puts 'carriage created'
 
 
 puts 'vehicles done'
