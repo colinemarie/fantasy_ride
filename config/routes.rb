@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :vehicles, only: [ :index, :show ] do
     resources :reservations, only: [:new, :create]
   end
-  resources :reservations, only: [:index, :destroy]
+  resources :reservations, only: [:index, :destroy,] do
+    member { patch :cancel }
+  end
+
 end
 
 
