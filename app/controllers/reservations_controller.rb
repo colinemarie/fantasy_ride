@@ -20,6 +20,17 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all.where(user: current_user)
   end
 
+  # def update
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.update(reservation_params)
+  # end
+
+  def cancel
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(status: "cancelled")
+    redirect_to reservations_path
+  end
+
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
@@ -29,6 +40,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date)
+    params.require(:reservation).permit(:start_date, :end_date, :status)
   end
 end
