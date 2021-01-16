@@ -11,8 +11,9 @@
         <% @reservations.each do |reservation| %>
           <% if reservation.status != "cancelled" %>
             <div class="card-trip">
-              <%= cl_image_tag reservation.vehicle.photos.first.key, height: 300, width: 400, crop: :fill %>
-
+              <%= link_to vehicle_path(reservation.vehicle) do %>
+                <%= cl_image_tag reservation.vehicle.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
               <div class="card-trip-infos">
                 <div>
                   <h2><%= reservation.vehicle.name %></h2>
@@ -39,8 +40,9 @@
           <% @reservations.each do |reservation| %>
             <% if reservation.status == "cancelled" %>
               <div class="card-trip">
+                <%= link_to vehicle_path(reservation.vehicle) do %>
                 <%= cl_image_tag reservation.vehicle.photos.first.key, height: 300, width: 400, crop: :fill %>
-
+                <% end %>
                 <div class="card-trip-infos">
                   <div>
                     <h2><%= reservation.vehicle.name %></h2>
@@ -60,6 +62,7 @@
       </div>
 
   <% end %>
+  <br>
     <p><i class="fas fa-undo"></i><%= link_to('Back to catalog', "/vehicles") %></p>
 
 </div>
