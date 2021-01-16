@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="sticky">
-  <%= link_to "Logo", root_path, class: "navbar-brand" %>
+  <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,14 +9,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item active">
-        <%= link_to "Hire out your ride", "#", class: "btn btn-outline-dark no-border" %>
+        <%= link_to "Hire out your ride", "#", class: "btn btn-outline-dark rounded-btn no-border" %>
       </li>
-      <li class="nav-item active">
-        <%= link_to "Log In", "#", class: "btn btn-outline-primary" %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Sign up", "#", class: "btn btn-primary" %>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "#{current_user.first_name}'s reservations", reservations_path, class: "btn btn-outline-dark rounded-btn no-border" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary rounded-btn", method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary rounded-btn" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary rounded-btn" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
