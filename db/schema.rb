@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_01_13_162109) do
-
+ActiveRecord::Schema.define(version: 2021_01_16_105133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_01_13_162109) do
   create_table "categories_vehicles", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "vehicle_id", null: false
+    t.index ["category_id", "vehicle_id"], name: "index_categories_vehicles_on_category_id_and_vehicle_id"
+    t.index ["vehicle_id", "category_id"], name: "index_categories_vehicles_on_vehicle_id_and_category_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 2021_01_13_162109) do
 
   create_table "vehicles", force: :cascade do |t|
     t.string "name"
-    t.string "category"
     t.integer "price_per_day"
     t.text "description"
     t.text "address"
