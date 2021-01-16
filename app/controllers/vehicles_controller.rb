@@ -5,7 +5,6 @@ class VehiclesController < ApplicationController
       sql_query = " \
       name ILIKE :query \
       OR description ILIKE :query \
-      OR category ILIKE :query \
       "
       @vehicles = Vehicle.where(sql_query, query: "%#{params[:query]}%")
     else
