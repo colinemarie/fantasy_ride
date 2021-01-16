@@ -1,24 +1,39 @@
 
 <div class="container">
   <h1>My reservations</h1>
-  <div class="content">
-    <div class="cards">
-      <% @reservations.each do |reservation| %>
-        <div class="card-trip">
-<!--           photo -->
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= reservation.vehicle.name %></h2>
-              <h2>from <%= reservation.start_date %> to <%= reservation.end_date %></h2>
-              <h2>total price of <%= reservation.total_price %> $</h2>
-               <%= link_to reservation_path(reservation), method: :delete  do %>
+
+  <% if @reservations.empty? %>
+    <p>No reservation yet?</p>
+    <p><%= link_to('Give it a try', "/vehicles") %></p>
+
+  <% else %>
+
+    <div class="content">
+      <div class="cards">
+
+        <% @reservations.each do |reservation| %>
+          <div class="card-trip">
+            <%= cl_image_tag reservation.vehicle.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= reservation.vehicle.name %></h2>
+                <h2>from <%= reservation.start_date %> to <%= reservation.end_date %></h2>
+                <h2>total price of <%= reservation.total_price %> $</h2>
+                <%= link_to reservation_path(reservation), method: :delete  do %>
                   <i class="fas fa-trash"></i>
-                <%end %>
+                 <% end %>
+
+              </div>
             </div>
           </div>
-        </div>
-       <% end %>
+         <% end %>
+
+      </div>
     </div>
-  </div>
-  <p><i class="fas fa-undo"></i><%= link_to('Retour au catalogue', "/vehicles") %></p>
+
+    <p><i class="fas fa-undo"></i><%= link_to('Retour au catalogue', "/vehicles") %></p>
+
+  <% end %>
+
 </div>
