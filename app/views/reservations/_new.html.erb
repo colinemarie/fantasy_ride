@@ -1,5 +1,6 @@
 <%= simple_form_for [@vehicle, @reservation] do |f| %>
     <%= f.input :start_date, as: :date, :order => [:day, :month, :year] %>
     <%= f.input :end_date, as: :date, :order => [:day, :month, :year] %>
+    <p>Total price : <span id="total-price"><%= @vehicle.price_per_day %></span> €</p>
   <%= f.button :submit, "Book now", class: "btn-primary rounded-btn btn-block" %>
 <% end %>
