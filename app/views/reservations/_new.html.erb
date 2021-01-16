@@ -2,5 +2,9 @@
     <%= f.input :start_date, as: :date, :order => [:day, :month, :year] %>
     <%= f.input :end_date, as: :date, :order => [:day, :month, :year] %>
     <p>Total price : <span id="total-price"><%= @vehicle.price_per_day %></span> €</p>
-  <%= f.button :submit, "Book now", class: "btn-primary rounded-btn btn-block" %>
+    <% if current_user %>
+      <%= f.button :submit, "Book now", class: "btn-primary rounded-btn btn-block" %>
+    <% else %>
+      <%= button_tag "Book now", class: "btn-primary rounded-btn btn-block", data: {toggle: "modal", target: "#logIn"} %>
+    <% end %>
 <% end %>
