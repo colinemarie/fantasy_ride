@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_01_14_083207) do
   create_table "categories_vehicles", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "vehicle_id", null: false
+    t.index ["category_id", "vehicle_id"], name: "index_categories_vehicles_on_category_id_and_vehicle_id"
+    t.index ["vehicle_id", "category_id"], name: "index_categories_vehicles_on_vehicle_id_and_category_id"
   end
 
   create_table "reservations", force: :cascade do |t|
