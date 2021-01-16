@@ -112,6 +112,7 @@
                         input_html: { autocomplete: "age" },
                         label: false,
                         placeholder: 'Age' %>
+            <%= f.input :photo, as: :file%>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
@@ -128,7 +129,7 @@
                         required: true,
                         input_html: { autocomplete: "new-password" },
                         label: false,
-                        placeholder: 'password' %>
+                        placeholder: 'confirm password' %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block rounded-btn" %>
