@@ -16,8 +16,28 @@ h1 {
 }
 
 .price-card {
-  padding-left: 50px;
+  margin-left: 50px;
   font-style: italic;
+  margin-right: 10px;
+}
+
+.bloc-label {
+  display: flex;
+};
+
+.category-label {
+  background-color: #5F2EEA;
+  color: white;
+  font-size: 14px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  height: 25px;
+  text-align: center;
+  border-radius: 10px;
+  font-style: italic;
+  margin-left: 10px;
 }
 
 .reservation-card {
@@ -25,17 +45,6 @@ h1 {
 
 .photo-vehicle {
   padding-left : 40px;
-}
-
-.category-label {
-  background-color: #5F2EEA;
-  color: white;
-  font-size: 14px;
-  width: 50px;
-  height: 25px;
-  text-align: center;
-  border-radius: 10px;
-  font-style: italic;
 }
 
 .description-card {
@@ -85,3 +94,5 @@ h1 {
   padding: 0 24px;
 }
 
+.avatar-large {
+}
