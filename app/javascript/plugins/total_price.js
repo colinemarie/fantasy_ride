@@ -8,6 +8,17 @@ const calculateTotalPrice = () => {
   totalPrice.innerText = totalDays * parseInt(dailyPrice.innerText)
 };
 
+const changeAutomaticallyEndDate = () => {
+  const startDate = document.getElementById("reservation_start_date_3i")
+  const endDate = document.getElementById("reservation_end_date_3i")
+
+  if (parseInt(startDate.value) > parseInt(endDate.value)) {
+    endDate.selectedIndex = parseInt(startDate.selectedIndex) + 1
+  }
+
+  calculateTotalPrice();
+};
+
 const initTotalPrice = () => {
   const dailyPrice = document.getElementById("daily-price")
   if (!dailyPrice) return;
@@ -16,6 +27,8 @@ const initTotalPrice = () => {
   const endDate = document.getElementById("reservation_end_date_3i")
 
   startDate.addEventListener("change", calculateTotalPrice)
+  startDate.addEventListener("change", changeAutomaticallyEndDate)
+  endDate.addEventListener("change", changeAutomaticallyEndDate)
   endDate.addEventListener("change", calculateTotalPrice)
 };
 
