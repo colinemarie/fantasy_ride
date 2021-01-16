@@ -6,6 +6,8 @@ h1 {
   color: #14142B;
   font-size: 32px;
   padding-left: 50px;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 .first-card-info {
@@ -18,8 +20,11 @@ h1 {
   font-style: italic;
 }
 
+.reservation-card {
+}
+
 .photo-vehicle {
-  padding-left : 50px;
+  padding-left : 40px;
 }
 
 .category-label {
@@ -36,18 +41,47 @@ h1 {
 .description-card {
   padding-left: 50px;
   text-align: justify;
+  width: 600px;
+}
+
+.description-card p {
+  font-style: italic;
 }
 
 .vehicle-detail-card {
-  background-color: white;
-  width: 500px;
+  background-color: none;
+  width: 600px;
   padding-left: 50px;
   padding-top: 10px;
-  border-radius: 3px;
+  border-radius: 10px;
 
+}
+
+.content-vehicle-detail-card {
+  font-style: italic;
 }
 
 .btn-card-vehicle {
   padding-left: 25px;
+}
+
+.return-link {
+  padding-left : 50px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  background: white;
+  width: 300px;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  margin-left: 50px;
+}
+
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
 }
 
