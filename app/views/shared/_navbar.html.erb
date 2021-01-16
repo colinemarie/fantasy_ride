@@ -20,15 +20,20 @@
         </li>
       <% else %>
         <li class="nav-item active">
-          <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary rounded-btn" %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary rounded-btn" %>
-        </li>
-        <li>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logIn">
+           <button type="button" class="btn btn-outline-primary rounded-btn" data-toggle="modal" data-target="#logIn">
             Log in
           </button>
+        </li>
+        <li class="nav-item active">
+            <button type="button" class="btn btn-primary rounded-btn" data-toggle="modal" data-target="#signUp">
+            Sign up
+          </button>
+        </li>
+        <li>
+
+        </li>
+        <li>
+
         </li>
       <% end %>
     </ul>
@@ -36,9 +41,7 @@
 </div>
 
 
-
-
-<!-- Modal -->
+<!-- Modal for Log in -->
 <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="logInLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -76,6 +79,65 @@
           Don't have an account?
           <%= link_to "Sign up", new_registration_path(resource_name) %><br />
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal for Sign Up-->
+<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUpLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signUpLabel">Sign up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :first_name,
+                        input_html: { autocomplete: "first name" },
+                        placeholder: 'Your first name',
+                        label: false %>
+            <%= f.input :last_name,
+                        input_html: { autocomplete: "last name" },
+                        placeholder: 'Your last name',
+                        label: false %>
+            <%= f.input :age, collection: 12..130,
+                        input_html: { autocomplete: "age" },
+                        label: false,
+                        placeholder: 'Age' %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" },
+                        placeholder: 'Email',
+                        label: false %>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" },
+                        label: false,
+                        placeholder: 'password' %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" },
+                        label: false,
+                        placeholder: 'password' %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block rounded-btn" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+          Already have an account?
+          <%= link_to "Log in", new_session_path(resource_name) %><br />
       </div>
     </div>
   </div>
