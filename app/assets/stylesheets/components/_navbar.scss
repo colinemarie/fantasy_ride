@@ -38,3 +38,13 @@ body {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.name-btn {
+  font-weight: bold;
+}
+
+.name-btn:hover{
+  background-color: transparent;
+  border-color: white;
+  color: black;
+}
