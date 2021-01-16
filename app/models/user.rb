@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :vehicles, dependent: :destroy
   has_many :reservations_as_owner, through: :vehicles, source: :reservations
+  has_one_attached :avatar
   validates :first_name, :last_name, :age, presence: true
 end
