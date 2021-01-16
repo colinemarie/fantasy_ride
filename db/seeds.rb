@@ -7,10 +7,13 @@ Vehicle.destroy_all
 
 puts 'adding users...'
 
-jafar = User.create(first_name: 'Jafar', last_name: 'Lazhar', age: 56, email: 'jafar@gmail.com', password: 'Coucou460')
-jon = User.create(first_name: 'Jon', last_name: 'Snow', age: 34, email: 'john@gmail.com', password: 'Coucou460')
-steven = User.create(first_name: 'Steven', last_name: 'Spielberg', age: 74, email: 'steven@gmail.com', password: 'Coucou460')
-myriam = User.create(first_name: 'My', last_name: 'Riam', age: 21, email: 'myriam@gmail.com', password: 'Coucou460')
+jafar = User.new(first_name: 'Jafar', last_name: 'Lazhar', age: 56, email: 'jafar@gmail.com', password: 'Coucou460')
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483441/fantasy-ride/titanic-the-unsinkable-ship_ehzbio.jpg')
+titanic.photos.attach(io: file, filename: 'titanic.png', content_type: 'image/png')
+
+jon = User.new(first_name: 'Jon', last_name: 'Snow', age: 34, email: 'john@gmail.com', password: 'Coucou460')
+steven = User.new(first_name: 'Steven', last_name: 'Spielberg', age: 74, email: 'steven@gmail.com', password: 'Coucou460')
+myriam = User.new(first_name: 'My', last_name: 'Riam', age: 21, email: 'myriam@gmail.com', password: 'Coucou460')
 
 puts 'users done'
 
