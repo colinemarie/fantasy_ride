@@ -25,7 +25,7 @@
                         input_html: { autocomplete: "last name" },
                         placeholder: 'Your last name',
                         label: false %>
-            <%= f.input :age,
+            <%= f.input :age, collection: 12..130,
                         input_html: { autocomplete: "age" },
                         label: false,
                         placeholder: 'Age' %>
