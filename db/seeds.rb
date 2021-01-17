@@ -52,12 +52,12 @@ puts 'adding vehicles...'
 
 
 kitt = Vehicle.new(name: "K.I.T.T.", price_per_day: 1200,
-                     description: "Forget about the slackbot and discover the true K.I.T.T. You can even ask  David Hasselhoff to be your driver.n\n
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                     occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                     address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
+                   description: "Forget about the slackbot and discover the true K.I.T.T. You can even ask David Hasselhoff to be your driver.\n\n
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                   aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                   occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                   address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
 kitt.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610877918/fantasy-ride/kitt1_sesxhn.jpg')
 kitt.photos.attach(io: file, filename: 'kitt.png', content_type: 'image/png')
@@ -216,7 +216,7 @@ submarine.photos.attach(io: file, filename: 'submarine.png', content_type: 'imag
 submarine.save!
 submarine.categories_vehicles.create!(category: sea)
 
-puts 'umbrella created'
+puts 'submarine created'
 
 taxi = Vehicle.new(name: "Leeloo's Taxi", price_per_day: 235,
                      description: "If you want to find the 5th Element, may be a ride with this taxi could help...
@@ -232,7 +232,7 @@ taxi.photos.attach(io: file, filename: 'taxi.png', content_type: 'image/png')
 taxi.save!
 taxi.categories_vehicles.create!(category: air)
 
-puts 'umbrella created'
+puts 'taxi created'
 
 nimbus = Vehicle.new(name: "Harry Potter Nimbus 2000", price_per_day: 467,
                      description: "The Nimbus 2000 is the perfect broomstick, good speed and exceptional handling. Be careful, not for beginners !
