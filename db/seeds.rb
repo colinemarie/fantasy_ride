@@ -50,7 +50,7 @@ carpet = Vehicle.new(name: "Aladdin's Magic Carpet", price_per_day: 1200,
                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                     address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
+                     address: 'Montreuil', capacity: 3, minimum_age: 16)
 carpet.user = jafar
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483257/fantasy-ride/aladdin_carpet_r1csko.jpg')
 carpet.photos.attach(io: file, filename: 'carpet.png', content_type: 'image/png')
@@ -123,7 +123,7 @@ drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
-                     address: 'Parallel world', capacity: 2, minimum_age: 25)
+                     address: 'Westeros', capacity: 2, minimum_age: 25)
 drogon.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610485781/fantasy-ride/dragon-got_ktaiuy.jpg')
 drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
@@ -141,7 +141,7 @@ slippers = Vehicle.new(name: "Dorothy's Ruby Slippers", price_per_day: 135,
                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
-                     address: 'Munchkin Country', capacity: 1, minimum_age: 16)
+                     address: "91, rue d'Aboukir, Paris", capacity: 1, minimum_age: 16)
 slippers.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610485781/fantasy-ride/dragon-got_ktaiuy.jpg')
 slippers.photos.attach(io: file, filename: 'slippers.png', content_type: 'image/png')
