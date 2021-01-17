@@ -11,21 +11,26 @@
         <% @reservations.each do |reservation| %>
           <% if reservation.status != "cancelled" %>
             <div class="card-trip">
-              <%= link_to vehicle_path(reservation.vehicle) do %>
-                <%= cl_image_tag reservation.vehicle.photos.first.key, height: 300, width: 400, crop: :fill %>
-              <% end %>
               <div class="card-trip-infos">
                 <div>
-                  <h2><%= reservation.vehicle.name %></h2>
+                  <div class="d-flex justify-content-between">
+                    <%= link_to vehicle_path(reservation.vehicle) do %>
+                    <h2><%= reservation.vehicle.name %></h2>
+                    <% end %>
+                    <%= link_to cancel_reservation_path(reservation), method: :patch, data: { confirm: "You sure?"}  do %>
+                    <i class="fas fa-trash"></i>
+                    <% end %>
+                  </div>
                   <div class="badge badge-pill badge-primary">
                   <p><%= reservation.status %></p>
                   </div>
-                  <div class="d-flex">
-                    <h2>from <%= reservation.start_date %> to <%= reservation.end_date %></h2>
-                    <h2>total price of <%= reservation.total_price %> $</h2>
-                  <%= link_to cancel_reservation_path(reservation), method: :patch, data: { confirm: "You sure?"}  do %>
-                    <i class="fas fa-trash"></i>
-                   <% end %>
+                  <div class="row">
+                    <div class="col-8">
+                      <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  days</h2>
+                    </div>
+                    <div class="col-4">
+                      <h2>total price <%= reservation.total_price %>$</h2>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -40,18 +45,21 @@
           <% @reservations.each do |reservation| %>
             <% if reservation.status == "cancelled" %>
               <div class="card-trip">
-                <%= link_to vehicle_path(reservation.vehicle) do %>
-                <%= cl_image_tag reservation.vehicle.photos.first.key, height: 300, width: 400, crop: :fill %>
-                <% end %>
                 <div class="card-trip-infos">
                   <div>
+                    <%= link_to vehicle_path(reservation.vehicle) do %>
                     <h2><%= reservation.vehicle.name %></h2>
-                    <div class="badge badge-pill badge-danger">
+                    <% end %>
+                    <div class="badge badge-pill badge-secondary">
                     <p><%= reservation.status %></p>
                     </div>
-                    <div class="d-flex">
-                      <h2>from <%= reservation.start_date %> to <%= reservation.end_date %></h2>
-                      <h2>total price of <%= reservation.total_price %> $</h2>
+                    <div class="row">
+                      <div class="col-8">
+                        <h2>Planned for <%= reservation.start_date.to_time.strftime('%B %e') %></h2>
+                      </div>
+                      <div class="col-4">
+                        <h2>total price <%= reservation.total_price %>$</h2>
+                      </div>
                     </div>
                   </div>
                 </div>
