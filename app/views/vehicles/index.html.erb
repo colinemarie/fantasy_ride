@@ -1,22 +1,24 @@
 <div class="container">
-  <div class="form-inline m-3">
-    <%= form_tag vehicles_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a ride"
-      %>
-      <%= submit_tag "Search", class: "btn btn-outline-primary m-3" %>
-      <%= link_to "Remove filters", vehicles_path, class: "btn btn-outline-black" %>
-    <% end %>
-  </div>
+    <div class="search-form-control form-group searchbar-index">
+      <%= form_tag vehicles_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a ride"
+        %>
+          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
   <div class="content">
     <div class="cards">
       <% @vehicles.each do |vehicle| %>
         <div class="card-trip">
-          <% vehicle.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, crop: :fill %>
-          <% end %>
+            <% vehicle.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
+            <% end %>
+            <div class="badge badge-pill badge-primary category-badge">
+              <p>category</p>
+            </div>
            <%= link_to vehicle_path(vehicle) do %>
               <div class="card-trip-infos">
                 <div>
