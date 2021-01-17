@@ -29,10 +29,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initTotalPrice } from '../plugins/total_price';
 import { initBoostrapModal } from '../plugins/bootstrap_modal';
+// import { initCardHover } from '../plugins/card_hover';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initTotalPrice();
   initBoostrapModal();
+  // initCardHover();
 });
