@@ -4,6 +4,7 @@ puts 'cleaning'
 Reservation.destroy_all
 User.destroy_all
 Vehicle.destroy_all
+Category.destroy_all
 
 puts 'adding users...'
 
@@ -31,6 +32,12 @@ myriam.avatar.attach(io: file, filename: 'myriam.png', content_type: 'image/png'
 myriam.save!
 puts 'myriam created'
 
+luc = User.new(first_name: 'Luc', last_name: 'Besson', age: 21, email: 'luc@gmail.com', password: 'Coucou460')
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610875566/fantasy-ride/besson_madocs.jpg')
+luc.avatar.attach(io: file, filename: 'luc.png', content_type: 'image/png')
+luc.save!
+puts 'luc created'
+
 puts 'users done'
 
 puts 'adding categories...'
@@ -43,9 +50,25 @@ time = Category.create(name: 'time')
 
 puts 'adding vehicles...'
 
-carpet = Vehicle.new(name: "Aladdin's Magic Carpet", price_per_day: 1200,
-                     description: "This Magic Carpet will show you a whole new world, unbelievable sights and an indescribable feeling.
 
+kitt = Vehicle.new(name: "K.I.T.T.", price_per_day: 1200,
+                     description: "Forget about the slackbot and discover the true K.I.T.T. You can even ask  David Hasselhoff to be your driver.n\n
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                     occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                     address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
+kitt.user = jon
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610877918/fantasy-ride/kitt1_sesxhn.jpg')
+kitt.photos.attach(io: file, filename: 'kitt.png', content_type: 'image/png')
+kitt.save!
+kitt.categories_vehicles.create!(category: wheels)
+
+puts 'kitt created'
+
+
+carpet = Vehicle.new(name: "Aladdin's Magic Carpet", price_per_day: 1200,
+                     description: "This Magic Carpet will show you a whole new world, unbelievable sights and an indescribable feeling.\n
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
@@ -61,10 +84,9 @@ puts 'carpet created'
 
 
 titanic = Vehicle.new(name: "Titanic", price_per_day: 49999,
-                     description: "Perfect to transport you and your friends safely around the world
-
+                     description: "Perfect to transport you and your friends safely around the world ! \n
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      dolore magna aliqua. \n Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
@@ -78,7 +100,7 @@ titanic.categories_vehicles.create!(category: sea)
 puts 'titanic created'
 
 
-bike = Vehicle.new(name: "Eliott's'bicycle", price_per_day: 900,
+bike = Vehicle.new(name: "Eliott's bicycle", price_per_day: 900,
                      description: "Join E.T. for a bicycle ride through the nightime sky
 
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -88,7 +110,7 @@ bike = Vehicle.new(name: "Eliott's'bicycle", price_per_day: 900,
                       mollit anim id est laborum",
                      address: 'California', capacity: 1, minimum_age: 12)
 bike.user = steven
-file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483265/fantasy-ride/et_bike_ihcu61.jpg')
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610831264/fantasy-ride/et_bike2_mhqeq7.jpg')
 bike.photos.attach(io: file, filename: 'bike.png', content_type: 'image/png')
 bike.save!
 bike.categories_vehicles.create!(category: wheels)
@@ -96,6 +118,38 @@ bike.categories_vehicles.create!(category: air)
 
 puts 'ET bike created'
 
+drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
+                     description: "If you are into burning entire cities to ashes, you have to try a ride on Drogon
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Parallel world', capacity: 2, minimum_age: 25)
+drogon.user = jon
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610832117/fantasy-ride/dragon_iufqob.jpg')
+drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
+drogon.save!
+drogon.categories_vehicles.create!(category: air)
+drogon.categories_vehicles.create!(category: animal)
+
+puts 'drogon created'
+
+slippers = Vehicle.new(name: "Dorothy's Ruby Slippers", price_per_day: 135,
+                     description: "Step into magic!
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Munchkin Country', capacity: 1, minimum_age: 16)
+slippers.user = jon
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610816806/fantasy-ride/ruby-slippers_qswza2.jpg')
+slippers.photos.attach(io: file, filename: 'slippers.png', content_type: 'image/png')
+slippers.save!
+slippers.categories_vehicles.create!(category: time)
+
+puts 'slippers created'
 
 dolorean = Vehicle.new(name: "Dolorean", price_per_day: 4698,
                      description: "Feeling nostalgia for days when partying was authorized? Try the Dolorean for a ride through time
@@ -115,41 +169,6 @@ dolorean.categories_vehicles.create!(category: air)
 
 puts 'dolorean created'
 
-
-drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
-                     description: "If you are into burning entire cities to ashes, you have to try a ride on Drogon
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                      mollit anim id est laborum",
-                     address: 'Parallel world', capacity: 2, minimum_age: 25)
-drogon.user = jon
-file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610485781/fantasy-ride/dragon-got_ktaiuy.jpg')
-drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
-drogon.save!
-drogon.categories_vehicles.create!(category: air)
-drogon.categories_vehicles.create!(category: animal)
-
-puts 'drogon created'
-
-
-slippers = Vehicle.new(name: "Dorothy's Ruby Slippers", price_per_day: 135,
-                     description: "Step into magic!
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                      mollit anim id est laborum",
-                     address: 'Munchkin Country', capacity: 1, minimum_age: 16)
-slippers.user = jon
-file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610816806/fantasy-ride/ruby-slippers_qswza2.jpg')
-slippers.photos.attach(io: file, filename: 'slippers.png', content_type: 'image/png')
-slippers.save!
-slippers.categories_vehicles.create!(category: time)
-
-puts 'slippers created'
-
 carriage = Vehicle.new(name: "Cinderella's carriage", price_per_day: 467,
                      description: "Looking for a prince?
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -166,21 +185,72 @@ carriage.categories_vehicles.create!(category: wheels)
 
 puts 'carriage created'
 
-carriage = Vehicle.new(name: "Cinderella's carriage", price_per_day: 467,
-                     description: "Looking for a prince?
+umbrella = Vehicle.new(name: "Mary Poppins' umbrella", price_per_day: 467,
+                     description: "This umbrella is the sure of to find the fun! (But don't forget to snap)
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                       dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
-                     address: 'Near Castle', capacity: 4, minimum_age: 16)
-carriage.user = myriam
-file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610817452/fantasy-ride/cendrillon_c6ubo0.jpg')
-carriage.photos.attach(io: file, filename: 'carriage.png', content_type: 'image/png')
-carriage.save!
-carriage.categories_vehicles.create!(category: wheels)
+                     address: 'London', capacity: 1, minimum_age: 16)
+umbrella.user = jafar
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610817743/fantasy-ride/mary-poppins_alrbht.jpg')
+umbrella.photos.attach(io: file, filename: 'umbrella.png', content_type: 'image/png')
+umbrella.save!
+umbrella.categories_vehicles.create!(category: air)
 
-puts 'carriage created'
+puts 'umbrella created'
+
+
+submarine = Vehicle.new(name: "Steeve Zissou's submarine", price_per_day: 1399,
+                     description: "Want to explore the aquatic life? \n\n
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Under the sea', capacity: 1, minimum_age: 12)
+submarine.user = luc
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610832936/fantasy-ride/submarine_mdvana.jpg')
+submarine.photos.attach(io: file, filename: 'submarine.png', content_type: 'image/png')
+submarine.save!
+submarine.categories_vehicles.create!(category: sea)
+
+puts 'umbrella created'
+
+taxi = Vehicle.new(name: "Leeloo's Taxi", price_per_day: 235,
+                     description: "If you want to find the 5th Element, may be a ride with this taxi could help...
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Somewhere', capacity: 4, minimum_age: 18)
+taxi.user = luc
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610833241/fantasy-ride/taxi_fifth_element_bmdocy.jpg')
+taxi.photos.attach(io: file, filename: 'taxi.png', content_type: 'image/png')
+taxi.save!
+taxi.categories_vehicles.create!(category: air)
+
+puts 'umbrella created'
+
+nimbus = Vehicle.new(name: "Harry Potter Nimbus 2000", price_per_day: 467,
+                     description: "The Nimbus 2000 is the perfect broomstick, good speed and exceptional handling. Be careful, not for beginners !
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Poudlard', capacity: 2, minimum_age: 16)
+nimbus.user = steven
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610833147/fantasy-ride/nimbus_j95sel.jpg')
+nimbus.photos.attach(io: file, filename: 'nimbus.png', content_type: 'image/png')
+nimbus.save!
+nimbus.categories_vehicles.create!(category: air)
+
+puts 'nimbus created'
+
+
 
 puts 'vehicles done'
 
