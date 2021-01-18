@@ -6,9 +6,9 @@
       <div class= bloc-label>
         <% @vehicle.categories.each do |category| %>
           <div class= category-label>
-           <%= category.name %>
+            <%= category.name %>
           </div>
-          <% end %>
+        <% end %>
       </div>
   </div>
 
@@ -22,38 +22,35 @@
       <%= render "reservations/new", vehicle: @vehicle, reservation: @reservation %>
       <br>
     </div>
-   </div>
+  </div>
   <br>
-    <div>
-      <div class= description-card>
-        <h2>Description</h2>
-        <p><%= @vehicle.description %></p>
+  <div>
+    <div class= description-card>
+      <h2>Description</h2>
+      <p><%= @vehicle.description %></p>
+    </div>
+
+    <div class= vehicle-detail-card>
+      <h2>Information</h2>
+      <div class= content-vehicle-detail-card>
+        <p>Location : <%= @vehicle.address %></p>
+        <p>Capacity : <%= @vehicle.capacity %> pers.</p>
+        <p>Minimum age : <%= @vehicle.minimum_age %> years old</p>
       </div>
-
-      <div class= vehicle-detail-card>
-        <h2>Information</h2>
-        <div class= content-vehicle-detail-card>
-          <p></p>
-          <p>Location : <%= @vehicle.address %></p>
-          <p>Capacity : <%= @vehicle.capacity %> pers.</p>
-          <p>Minimum age : <%= @vehicle.minimum_age %> years old</p>
-        </div>
+    </div>
+    <br>
+    <div class="notification">
+      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+      <div class="notification-content">
+        <p><small>Owner : <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %></small></p>
       </div>
-<br>
-  <div class="notification">
-    <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-    <div class="notification-content">
-      <p><small>Owner : <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %></small></p>
+    </div>
+    <p><div class= return-link><i class="fas fa-undo"></i>   <%= link_to('Retour au catalogue', "/vehicles") %></div></p>
   </div>
+
+  <div id="map"
+    style="width: 100%; height: 400px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <p><div class= return-link><i class="fas fa-undo"></i>   <%= link_to('Retour au catalogue', "/vehicles") %></div></p>
 </div>
-
-
-<div id="map"
-  style="width: 100%; height: 400px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-
