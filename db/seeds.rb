@@ -51,13 +51,13 @@ time = Category.create(name: 'time')
 puts 'adding vehicles...'
 
 
-kitt = Vehicle.new(name: "K.I.T.T.", price_per_day: 1200,
+kitt = Vehicle.new(name: "K.I.T.T.", price_per_day: 2000,
                    description: "Forget about the slackbot and discover the true K.I.T.T. You can even ask David Hasselhoff to be your driver.\n\n
                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                   address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
+                   address: 'Eklecty-City', capacity: 3, minimum_age: 16)
 kitt.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610877918/fantasy-ride/kitt1_sesxhn.jpg')
 kitt.photos.attach(io: file, filename: 'kitt.png', content_type: 'image/png')
@@ -73,7 +73,7 @@ carpet = Vehicle.new(name: "Aladdin's Magic Carpet", price_per_day: 1200,
                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                     address: 'Dans la Lampe', capacity: 3, minimum_age: 16)
+                     address: 'Montreuil', capacity: 3, minimum_age: 16)
 carpet.user = jafar
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483257/fantasy-ride/aladdin_carpet_r1csko.jpg')
 carpet.photos.attach(io: file, filename: 'carpet.png', content_type: 'image/png')
@@ -125,7 +125,7 @@ drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
-                     address: 'Parallel world', capacity: 2, minimum_age: 25)
+                     address: 'Westeros', capacity: 2, minimum_age: 25)
 drogon.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610832117/fantasy-ride/dragon_iufqob.jpg')
 drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
@@ -159,7 +159,7 @@ dolorean = Vehicle.new(name: "Dolorean", price_per_day: 4698,
                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
-                     address: 'California', capacity: 1, minimum_age: 12)
+                     address: 'California', capacity: 3, minimum_age: 12)
 dolorean.user = steven
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483261/fantasy-ride/delorean_dmc-12_um2xt1.jpg')
 dolorean.photos.attach(io: file, filename: 'dolorean.png', content_type: 'image/png')
@@ -249,7 +249,6 @@ nimbus.save!
 nimbus.categories_vehicles.create!(category: air)
 
 puts 'nimbus created'
-
 
 
 puts 'vehicles done'

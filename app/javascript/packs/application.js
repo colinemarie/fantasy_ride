@@ -29,6 +29,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initTotalPrice } from '../plugins/total_price';
 import { initBoostrapModal } from '../plugins/bootstrap_modal';
+import { initMapbox} from '../plugins/init_mapbox';
 // import { initCardHover } from '../plugins/card_hover';
 
 document.addEventListener('turbolinks:load', () => {
@@ -36,5 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initTotalPrice();
   initBoostrapModal();
+  initMapbox();
   // initCardHover();
 });
