@@ -266,7 +266,7 @@ reservation1.save!
 
 puts 'one reservation done'
 
-start_date = Date.new(2021, 1, 18)
+start_date = Date.new(2021, 1, 25)
 end_date = start_date + 6
 reservation2 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation2.vehicle = drogon
