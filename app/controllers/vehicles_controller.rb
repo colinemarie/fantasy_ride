@@ -24,4 +24,7 @@ class VehiclesController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { vehicle: @vehicle })
     }
   end
+
+  def new
+  end
 end
