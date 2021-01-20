@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
     @reservation.vehicle = @vehicle
     @reservation.user = current_user
     @reservation.duration = (@reservation.end_date - @reservation.start_date).to_i
-    @reservation.total_price = (@reservation.end_date - @reservation.start_date) * @vehicle.price_per_day
+    @reservation.total_price = @reservation.duration * @vehicle.price_per_day
     if @reservation.save
       redirect_to reservations_path
     else
