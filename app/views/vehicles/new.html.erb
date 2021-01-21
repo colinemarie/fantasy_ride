@@ -12,7 +12,7 @@
       <%= f.input :address, as: :string %>
       <%= f.input :capacity, as: :integer %>
       <%= f.input :minimum_age, collection: 6..99 %>
-      <%= f.input :photos, as: :file%>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
     </div>
 
     <div class="form-actions">
