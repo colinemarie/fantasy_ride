@@ -1,12 +1,14 @@
 class VehiclesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-
+  
   def index
     if params[:query].present?
       sql_query = " \
-      name ILIKE :query \
-      OR description ILIKE :query"
-      @vehicles = Vehicle.where(sql_query, query: "%#{params[:query]}%")
+      vehicles.name ILIKE :query \
+      OR vehicles.description ILIKE :query \
+      OR categories.name ILIKE :query \
+      "
+      @vehicles = Vehicle.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
     else
       @vehicles = Vehicle.all
     end
