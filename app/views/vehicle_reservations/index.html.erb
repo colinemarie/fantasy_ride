@@ -1,0 +1,84 @@
+<div class="container">
+<h1>Here all your reservations for <%= @vehicle.name %></h1>
+<br>
+<br>
+
+<h2>My pending reservations</h2>
+<br>
+<% @pending_reservations.each do |reservation| %>
+  <div class="card-product">
+    <% reservation.vehicle.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+      <% end %>
+  <div class="card-product-infos">
+      <p>Start date : <%= reservation.start_date %></p>
+      <p>End date :<%= reservation.end_date %></p>
+      <p>Reserved by : </p>
+      <p><strong>Total price :<%= reservation.total_price %></strong></p>
+    </div>
+  </div>
+    <% end %>
+
+<br>
+<h2>My accepted reservations (upcoming)</h2>
+<br>
+  <% @accepted_reservations.each do |reservation| %>
+    <div class="card-product">
+      <% reservation.vehicle.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+      <% end %>
+    <div class="card-product-infos">
+      <p>Start date : <%= reservation.start_date %></p>
+      <p>End date :<%= reservation.end_date %></p>
+      <p>Reserved by : </p>
+      <p><strong>Total price :<%= reservation.total_price %></strong></p>
+    </div>
+    </div>
+  <% end %>
+
+<br>
+<h2>My declined reservations</h2>
+<br>
+  <% @declined_reservations.each do |reservation| %>
+    <div class="card-product">
+      <% reservation.vehicle.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 400, width: 600, crop: :fill %>
+      <% end %>
+
+    <div class="card-product-infos">
+      <p>Start date : <%= reservation.start_date %></p>
+      <p>End date :<%= reservation.end_date %></p>
+      <p>Reserved by : </p>
+      <p><strong>Total price :<%= reservation.total_price %></strong></p>
+    </div>
+    </div>
+  <% end %>
+<br>
+<br>
+
+<br>
+<h2>My cancelled reservations</h2>
+<br>
+  <% @cancelled_reservations.each do |reservation| %>
+    <div class="card-product">
+    <% reservation.vehicle.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+      <% end %>
+    <div class="card-product-infos">
+      <p>Start date : <%= reservation.start_date %></p>
+      <p>End date :<%= reservation.end_date %></p>
+      <p>Reserved by : </p>
+      <p><strong>Total price :<%= reservation.total_price %></strong></p>
+    </div>
+    </div>
+  <% end %>
+<br>
+<br>
+
+<h2>My old accepted reservations (passed)</h2>
+<br>
+
+<br>
+<br>
+
+</div>
