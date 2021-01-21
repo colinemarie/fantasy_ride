@@ -9,15 +9,61 @@
           <%= submit_tag "Search", class: "btn btn-outline-primary" %>
         <% end %>
       </div>
-  <div class="content">
-    <div class="cards">
+  <div class="content row">
+    <div class="filters col-2">
+      <div class="filter-category form-check pt-20">
+        <h2>Category</h2>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="air">
+          <label class="form-check-label" for="air">
+            Air
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="sea">
+          <label class="form-check-label" for="sea">
+            Sea
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="wheels">
+          <label class="form-check-label" for="wheels">
+            Wheels
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="animal">
+          <label class="form-check-label" for="animal">
+            Animal
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="time">
+          <label class="form-check-label" for="time">
+            Time
+          </label>
+        </div>
+      </div>
+      <div class="filter-category">
+        <h2>Price</h2>
+      </div>
+      <div class="filter-category">
+        <h2>Capacity</h2>
+      </div>
+    </div>
+    <div class="cards col-10">
       <% @vehicles.each do |vehicle| %>
         <div class="card-trip">
             <% vehicle.photos.each do |photo| %>
               <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
             <% end %>
-            <div class="badge badge-pill badge-primary category-badge">
-              <p>category</p>
+            <%= link_to ">", vehicle_path(vehicle) ,class: "card-button" %>
+            <div class="category-badges">
+              <% vehicle.categories.each do |category| %>
+                <div class="badge badge-pill badge-primary category-badge">
+                  <p><%= category.name %></p>
+                </div>
+              <% end %>
             </div>
            <%= link_to vehicle_path(vehicle) do %>
               <div class="card-trip-infos">

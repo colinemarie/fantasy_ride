@@ -1,12 +1,14 @@
 class VehiclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  
   def index
     if params[:query].present?
-      ql_query = " \
-      name ILIKE :query \
-      OR description ILIKE :query \
+      sql_query = " \
+      vehicles.name ILIKE :query \
+      OR vehicles.description ILIKE :query \
+      OR categories.name ILIKE :query \
       "
-      @vehicles = Vehicle.where(sql_query, query: "%#{params[:query]}%")
+      @vehicles = Vehicle.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
     else
       @vehicles = Vehicle.all
     end
@@ -23,5 +25,8 @@ class VehiclesController < ApplicationController
       lng: @vehicle.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { vehicle: @vehicle })
     }
+  end
+
+  def new
   end
 end
