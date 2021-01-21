@@ -32,3 +32,12 @@
 .searchbar-index .btn {
   border-radius: 20px;
 }
+
+.label-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.label-checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
