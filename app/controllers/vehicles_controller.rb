@@ -53,7 +53,7 @@ class VehiclesController < ApplicationController
                                     :address,
                                     :capacity,
                                     :minimum_age,
-                                    :photo,
-                                    :user)
+                                    :user,
+                                    photos: [])
   end
 end
