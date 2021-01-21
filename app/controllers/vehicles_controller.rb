@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  
   def index
     if params[:query].present?
       sql_query = " \
@@ -24,5 +25,8 @@ class VehiclesController < ApplicationController
       lng: @vehicle.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { vehicle: @vehicle })
     }
+  end
+
+  def new
   end
 end

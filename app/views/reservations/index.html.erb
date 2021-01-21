@@ -26,7 +26,11 @@
                   </div>
                   <div class="row">
                     <div class="col-8">
-                      <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  days</h2>
+                      <% if reservation.duration > 1 %>
+                        <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  days</h2>
+                      <% else %>
+                        <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  day</h2>
+                      <% end %>
                     </div>
                     <div class="col-4">
                       <h2>total price <%= reservation.total_price %>$</h2>
@@ -71,6 +75,6 @@
 
   <% end %>
   <br>
-    <p><i class="fas fa-undo"></i><%= link_to('Back to catalog', "/vehicles") %></p>
+    <p><i class="fas fa-undo"></i>  <%= link_to('Back to catalog', "/vehicles") %></p>
 
 </div>

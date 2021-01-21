@@ -52,11 +52,13 @@ puts 'adding vehicles...'
 
 
 kitt = Vehicle.new(name: "K.I.T.T.", price_per_day: 2000,
-                   description: "Forget about the slackbot and discover the true K.I.T.T. You can even ask David Hasselhoff to be your driver.\n\n
+                   description: "Forget about the slackbot and discover the true K.I.T.T. You can even ask David Hasselhoff to be your driver.
+
                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                   occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
                    address: 'Eklecty-City', capacity: 3, minimum_age: 16)
 kitt.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610877918/fantasy-ride/kitt1_sesxhn.jpg')
@@ -266,7 +268,7 @@ reservation1.save!
 
 puts 'one reservation done'
 
-start_date = Date.new(2021, 1, 18)
+start_date = Date.new(2021, 1, 25)
 end_date = start_date + 6
 reservation2 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation2.vehicle = drogon
