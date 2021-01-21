@@ -3,15 +3,17 @@ class VehiclesController < ApplicationController
   only: [ :index, :show ]
 
   def index
+    @vehicles = Vehicle.all
+    if params[:vehicle].present? && params[:vehicle][:category_ids].present?
+      @vehicles = @vehicles.joins(:categories).where(categories: { id: params[:vehicle][:category_ids]})
+    end
     if params[:query].present?
       sql_query = " \
       vehicles.name ILIKE :query \
       OR vehicles.description ILIKE :query \
       OR categories.name ILIKE :query \
       "
-      @vehicles = Vehicle.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @vehicles = Vehicle.all
+      @vehicles = @vehicles.joins(:categories).where(sql_query, query: "%#{params[:query]}%")
     end
   end
 
