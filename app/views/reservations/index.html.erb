@@ -26,11 +26,8 @@
                   </div>
                   <div class="row">
                     <div class="col-8">
-                      <% if reservation.duration > 1 %>
-                        <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  days</h2>
-                      <% else %>
-                        <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  day</h2>
-                      <% end %>
+                      <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  days</h2>
+                      <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  day</h2>
                     </div>
                     <div class="col-4">
                       <h2>total price <%= reservation.total_price %>$</h2>

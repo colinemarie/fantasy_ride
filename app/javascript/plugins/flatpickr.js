@@ -10,3 +10,8 @@ flatpickr("#reservation_start_date", {
   "firstDayOfWeek": 1 // start week on Monday
     },
 });
+
+
+export {
+  flatpickr
+}
