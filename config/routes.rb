@@ -8,8 +8,9 @@ Rails.application.routes.draw do
     member { patch :cancel, :decline, :accept }
   end
   resources :my_vehicles, only: [ :index ] do
-    resources :reservations, only: [ :index ]
+    resources :vehicle_reservations, only: [ :index ]
   end
 end
 
 
+ # resources :reservations, only: [ :index ]
