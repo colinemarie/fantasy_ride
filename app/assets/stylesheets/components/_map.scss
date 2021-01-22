@@ -4,5 +4,15 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  color: #4E4B66;
+  font-family: 'Poppins', sans-serif;
+}
+
+.marker {
+  background-image: url('https://res.cloudinary.com/dw3inosxv/image/upload/v1611301724/logo_kd2zw3.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }
