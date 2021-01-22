@@ -1,0 +1,13 @@
+<div class="card-product radius m-2">
+  <% reservation.vehicle.photos.each do |photo| %>
+    <%= cl_image_tag photo.key %>
+  <% end %>
+  <div class="card-product-infos">
+    <p><strong>From <%= reservation.start_date.to_time.strftime('%e %B') %> to
+    <%= reservation.end_date.to_time.strftime('%e %B') %> </p></strong>
+    <p>Reserved by <%= reservation.user.first_name %> </p>
+    <p>Total price <%= number_with_delimiter(reservation.total_price, :delimiter => ',')%> €</p>
+    <%= link_to 'Accept', accept_reservation_path(reservation), method: :patch, data: { confirm: "You sure?"}, class: "btn btn-primary rounded-btn" %>
+    <%= link_to 'Decline', decline_reservation_path(reservation), method: :patch, data: { confirm: "You sure?"}, class: "btn btn-primary rounded-btn" %>
+  </div>
+</div>
