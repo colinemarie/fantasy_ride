@@ -41,11 +41,23 @@ class ReservationsController < ApplicationController
     redirect_to reservations_path
   end
 
-  def destroy
+  def accept
     @reservation = Reservation.find(params[:id])
-    @reservation.destroy
-    redirect_to reservations_path
+    @reservation.update(status: "accepted")
+    # redirect_to my_vehicles_vehicle_reservations
   end
+
+  def decline
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(status: "declined")
+    # redirect_to reservations_path
+  end
+
+  # def destroy
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.destroy
+  #   redirect_to reservations_path
+  # end
 
   # def duration
   #   @reservation = Reservation.find(params[:id])

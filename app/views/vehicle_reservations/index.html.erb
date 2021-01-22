@@ -1,84 +1,43 @@
 <div class="container">
-<h1>Here all your reservations for <%= @vehicle.name %></h1>
-<br>
-<br>
+  <h1>Here all your reservations for <%= @vehicle.name %></h1>
 
-<h2>My pending reservations</h2>
-<br>
-<% @pending_reservations.each do |reservation| %>
-  <div class="card-product">
-    <% reservation.vehicle.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
+  <% if @pending_reservations.present? %>
+    <div>
+      <h3>My pending reservations</h3>
+      <% @pending_reservations.each do |reservation| %>
+        <%= render "vehicle_reservations/cards", reservation: reservation %>
       <% end %>
-  <div class="card-product-infos">
-      <p>Start date : <%= reservation.start_date %></p>
-      <p>End date :<%= reservation.end_date %></p>
-      <p>Reserved by : </p>
-      <p><strong>Total price :<%= reservation.total_price %></strong></p>
-    </div>
-  </div>
-    <% end %>
-
-<br>
-<h2>My accepted reservations (upcoming)</h2>
-<br>
-  <% @accepted_reservations.each do |reservation| %>
-    <div class="card-product">
-      <% reservation.vehicle.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
-      <% end %>
-    <div class="card-product-infos">
-      <p>Start date : <%= reservation.start_date %></p>
-      <p>End date :<%= reservation.end_date %></p>
-      <p>Reserved by : </p>
-      <p><strong>Total price :<%= reservation.total_price %></strong></p>
-    </div>
     </div>
   <% end %>
 
-<br>
-<h2>My declined reservations</h2>
-<br>
-  <% @declined_reservations.each do |reservation| %>
-    <div class="card-product">
-      <% reservation.vehicle.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 400, width: 600, crop: :fill %>
+  <% if @accepted_reservations.present? %>
+    <div>
+      <h3>My accepted reservations (upcoming)</h3>
+      <% @accepted_reservations.each do |reservation| %>
+        <%= render "vehicle_reservations/cards", reservation: reservation %>
       <% end %>
-
-    <div class="card-product-infos">
-      <p>Start date : <%= reservation.start_date %></p>
-      <p>End date :<%= reservation.end_date %></p>
-      <p>Reserved by : </p>
-      <p><strong>Total price :<%= reservation.total_price %></strong></p>
-    </div>
     </div>
   <% end %>
-<br>
-<br>
 
-<br>
-<h2>My cancelled reservations</h2>
-<br>
-  <% @cancelled_reservations.each do |reservation| %>
-    <div class="card-product">
-    <% reservation.vehicle.photos.each do |photo| %>
-      <%= cl_image_tag photo.key %>
+  <% if @declined_reservations.present? %>
+    <div>
+      <h3>My declined reservations</h3>
+      <% @declined_reservations.each do |reservation| %>
+        <%= render "vehicle_reservations/cards", reservation: reservation %>
       <% end %>
-    <div class="card-product-infos">
-      <p>Start date : <%= reservation.start_date %></p>
-      <p>End date :<%= reservation.end_date %></p>
-      <p>Reserved by : </p>
-      <p><strong>Total price :<%= reservation.total_price %></strong></p>
-    </div>
     </div>
   <% end %>
-<br>
-<br>
 
-<h2>My old accepted reservations (passed)</h2>
-<br>
+  <% if @cancelled_reservations.present? %>
+    <div>
+      <h3>My cancelled reservations</h3>
+      <% @cancelled_reservations.each do |reservation| %>
+        <%= render "vehicle_reservations/cards", reservation: reservation %>
+      <% end %>
+    </div>
+  <% end %>
 
-<br>
-<br>
-
+  <div class="mb-4">
+<!--     <h3>My old accepted reservations (passed)</h3>
+ -->  </div>
 </div>
