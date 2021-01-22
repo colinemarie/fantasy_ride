@@ -20,7 +20,7 @@
               </div>
             <% end %>
           </div>
-          <%= link_to vehicle_path(vehicle) do  %>
+          <%= link_to my_vehicle_vehicle_reservations_path(vehicle) do  %>
             <div class="card-trip-infos">
               <h2><%= vehicle.name %> </h2>
               <h2><%= number_with_delimiter(vehicle.price_per_day, :delimiter => ',') %> € per day</h2>
