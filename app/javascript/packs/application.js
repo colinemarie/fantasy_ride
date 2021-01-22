@@ -39,6 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   // initTotalPrice();
   initBoostrapModal();
   initMapbox();
-  flatpickr();
+  // initFlatpickr();
   // initCardHover();
 });

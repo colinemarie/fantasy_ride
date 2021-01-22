@@ -1,6 +1,5 @@
 
 <div class="container">
-
   <h1><%= @vehicle.name %></h1>
     <div class="first-card-info">
     </div>
@@ -48,12 +47,13 @@
       <p><i class="fas fa-undo text-primary mt-2 mb-4"></i>   <%= link_to('Retour au catalogue', "/vehicles") %></p>
     </div>
     <div class="col-md-4">
-      <div class="bg-white border border-white sticky-top p-4 radius">
-        <%= render "reservations/new", vehicle: @vehicle, reservation: @reservation %>
-        <br>
+      <% if current_user != @vehicle.user %>
+        <div class="bg-white border border-white sticky-top p-4 radius">
+          <%= render "reservations/new", vehicle: @vehicle, reservation: @reservation %>
+          <br>
       </div>
+      <% end %>
     </div>
-  </div>
   </div>
 </div>
 
