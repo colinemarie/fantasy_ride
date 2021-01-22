@@ -4,7 +4,8 @@
   padding: 60px;
   color: white;
   font-size: 30px;
-  background-image: url('https://source.unsplash.com/hqRZUhvsPtU/1600x900');
+  background-image: url('https://preview.redd.it/iwxui56660o21.jpg?width=1920&format=pjpg&auto=webp&s=7c663a4e609818c49f81f1f36f72bef664509fac');
+  // background-image: url('https://res.cloudinary.com/dw3inosxv/image/upload/v1611329462/fantasy-ride/wbezdc6p1km21_rc6gyr.png');
   // height: 100vh;
   // object-fit: cover;
   margin: auto;
@@ -37,9 +38,17 @@
 
 input[type="text"] {
   font-family: Poppins;
-  font-size: 20px;
+  // font-size: 20px;
   padding: 10px;
 }
+
+
+input#query.searchbar {
+  font-size: 25px;
+  width: 560px;
+  color: $primary;
+}
+
 
 .input-button {
   padding: 6.5px 20px;
