@@ -3,29 +3,36 @@
     <span class="fa fa-plus"></span>
     <%= link_to  "Add a new vehicle", new_vehicle_path, class: "btn btn-lg btn-primary rounded-btn btn-home", id: "goldenButton"%>
   </div>
+
   <h1> <%= @user.first_name %>, here all your vehicles</h1>
-<br>
+
   <div class="content">
-      <div class="cards">
-        <% @user.vehicles.each do |vehicle| %>
-          <div class="card-trip">
-              <% vehicle.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
-              <% end %>
+    <div class="cards">
+      <% @user.vehicles.each do |vehicle| %>
+        <div class="card-trip">
+          <% vehicle.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
+          <% end %>
+          <div class="category-badges">
+            <% vehicle.categories.each do |category| %>
               <div class="badge badge-pill badge-primary category-badge">
-                <p>category</p>
+                <p><%= category.name %> </p>
               </div>
-             <%= link_to  my_vehicle_vehicle_reservations_path(vehicle) do %>
-                <div class="card-trip-infos">
-                  <div>
-                    <h2><%= vehicle.name %></h2>
-                    <h2> <%= vehicle.price_per_day %> € / day </h2>
-                  </div>
-                </div>
-              <% end %>
+            <% end %>
+          </div>
+          <%= link_to vehicle_path(vehicle) do  %>
+            <div class="card-trip-infos">
+              <h2><%= vehicle.name %> </h2>
+              <h2><%= number_with_delimiter(vehicle.price_per_day, :delimiter => ',') %> € per day</h2>
             </div>
           <% end %>
         </div>
-      </div>
-<br>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+
+
