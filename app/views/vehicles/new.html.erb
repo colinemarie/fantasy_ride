@@ -3,6 +3,7 @@
   <div class="row justify-content-center">
     <div class="col-sm-9">
     <%= simple_form_for(@vehicle) do |f| %>
+    <h1>Add your vehicle</h1>
     <div class="form-inputs">
       <div class="input-box">
         <h2>Find a beautiful name *</h2>
@@ -12,7 +13,7 @@
                       label: false,
                       placeholder: "Aladdin's Magic Carpet"%>
       </div>
-      <div class="form-inputs">
+      <div class="input-box">
         <h2>Check the ways of moving *</h2>
         <div class="d-flex flex-column">
           <%=  f.collection_check_boxes :categories, Category.all,
@@ -71,11 +72,10 @@
       </div>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "Create", class: "btn btn-primary rounded-btn", data: {user: current_user ? true : false} %>
+        <%= f.button :submit, "Create", class: "btn btn-primary rounded-btn btn-lg btn-block", data: {user: current_user ? true : false} %>
       </div>
     <% end %>
-    <%= link_to "Back", :back %>
-    </div>
+    <p><i class="fas fa-undo text-primary mt-5 mb-4"></i>   <%= link_to('Retour au catalogue', "/vehicles") %></p>    </div>
   </div>
 
 </div>
