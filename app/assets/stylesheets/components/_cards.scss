@@ -10,6 +10,24 @@
   padding: 16px;
 }
 
+.cards-reservation {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.card-relative {
+  position: relative;
+}
+
+.item-absolute {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
 .card-trip {
   border-radius: 25px;
   overflow: hidden;
