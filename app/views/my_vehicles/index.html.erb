@@ -14,8 +14,13 @@
             <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
           <% end %>
           <div class="manage-vehicle-pictos">
-            <%= link_to "Edit", edit_vehicle_path(vehicle), :confirm => "Are you sure" %>
-            <%= link_to "Delete", vehicle_path(vehicle), :confirm => "Are you sure", :method => :delete%>
+            <%= link_to edit_vehicle_path(vehicle), :confirm => "Are you sure ?" do %>
+              <i class="fas fa-pen mr-2"></i>
+            <% end %>
+            <%= link_to vehicle_path(vehicle), data: {:confirm => "Are you sure ?"}, :method => :delete do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+
           </div>
           <div class="category-badges">
             <% vehicle.categories.each do |category| %>
@@ -27,7 +32,7 @@
           <%= link_to my_vehicle_vehicle_reservations_path(vehicle) do  %>
             <div class="card-trip-infos">
               <h2><%= vehicle.name %></h2>
-              <h2><%= number_with_delimiter(vehicle.price_per_day, :delimiter => ',') %> € per day</h2>
+              <p><%= number_with_delimiter(vehicle.price_per_day, :delimiter => ',') %> € per day</p>
             </div>
           <% end %>
         </div>
