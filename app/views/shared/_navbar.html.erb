@@ -12,11 +12,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item active">
-        <%= link_to "Hire out your ride", "#", class: "btn btn-outline-dark rounded-btn no-border" %>
+        <%= link_to "My garage", my_vehicles_path, class: "btn btn-outline-dark rounded-btn no-border" %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "#{current_user.first_name}'s reservations", reservations_path, class: "btn btn-outline-dark rounded-btn no-border" %>
+          <%= link_to "My journeys", reservations_path, class: "btn btn-outline-dark rounded-btn no-border" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary rounded-btn", method: :delete %>
