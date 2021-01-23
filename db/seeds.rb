@@ -59,7 +59,7 @@ kitt = Vehicle.new(name: "K.I.T.T.", price_per_day: 2000,
                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-                   address: 'Eklecty-City', capacity: 3, minimum_age: 16)
+                   address: 'Villa Gaudelet, Paris', capacity: 3, minimum_age: 16)
 kitt.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610877918/fantasy-ride/kitt1_sesxhn.jpg')
 kitt.photos.attach(io: file, filename: 'kitt.png', content_type: 'image/png')
@@ -86,12 +86,8 @@ puts 'carpet created'
 
 
 titanic = Vehicle.new(name: "Titanic", price_per_day: 49999,
-                     description: "Perfect to transport you and your friends safely around the world ! \n
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua. \n Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                      mollit anim id est laborum",
+                     description: "Perfect to transport you and your friends safely around the world !
+                     Come and enjoy the ballroom, pool and jacuzzi. Every room benefits from the latest technology, 5K screens, 6G mobile connection available... ",
                      address: 'Port de Brest', capacity: 3300, minimum_age: 25)
 titanic.user = steven
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483441/fantasy-ride/titanic-the-unsinkable-ship_ehzbio.jpg')
@@ -120,22 +116,6 @@ bike.categories_vehicles.create!(category: air)
 
 puts 'ET bike created'
 
-drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
-                     description: "If you are into burning entire cities to ashes, you have to try a ride on Drogon
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                      mollit anim id est laborum",
-                     address: 'Westeros', capacity: 2, minimum_age: 25)
-drogon.user = jon
-file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610832117/fantasy-ride/dragon_iufqob.jpg')
-drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
-drogon.save!
-drogon.categories_vehicles.create!(category: air)
-drogon.categories_vehicles.create!(category: animal)
-
-puts 'drogon created'
 
 slippers = Vehicle.new(name: "Dorothy's Ruby Slippers", price_per_day: 135,
                      description: "Step into magic!
@@ -179,7 +159,7 @@ carriage = Vehicle.new(name: "Cinderella's carriage", price_per_day: 467,
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
                      address: 'Near Castle', capacity: 4, minimum_age: 16)
-carriage.user = jon
+carriage.user = myriam
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610817452/fantasy-ride/cendrillon_c6ubo0.jpg')
 carriage.photos.attach(io: file, filename: 'carriage.png', content_type: 'image/png')
 carriage.save!
@@ -233,6 +213,7 @@ file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610833241/f
 taxi.photos.attach(io: file, filename: 'taxi.png', content_type: 'image/png')
 taxi.save!
 taxi.categories_vehicles.create!(category: air)
+taxi.categories_vehicles.create!(category: wheels)
 
 puts 'taxi created'
 
@@ -266,8 +247,9 @@ file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1611349774/f
 hypogriff.photos.attach(io: file, filename: 'hypogriff.png', content_type: 'image/png')
 hypogriff.save!
 hypogriff.categories_vehicles.create!(category: air)
+hypogriff.categories_vehicles.create!(category: animal)
 
-puts 'nimbus created'
+puts 'hypogriff created'
 
 falkor = Vehicle.new(name: "Falkor", price_per_day: 467,
                      description: "Falkor, the white dragon from the NeverEnding story is know to be a lucky charm.
@@ -280,10 +262,26 @@ falkor.user = steven
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1611349783/fantasy-ride/histoire_sans_fin_x89j7w.webp')
 falkor.photos.attach(io: file, filename: 'falkor.png', content_type: 'image/png')
 falkor.save!
-falkor.categories_vehicles.create!(category: air)
+falkor.categories_vehicles.create!(category: animal)
 
 puts 'falkor created'
 
+
+drogon = Vehicle.new(name: "Drogon", price_per_day: 4698,
+                     description: "If you are into burning entire cities to ashes, you have to try a ride on Drogon !
+                     One of the three dragons born in the wastelands beyond Lhazar comes directly from Game of Thrones to offer you a memorable ride.
+                     Very kind and warming, Drogon is THE pet to have. Useful to travel, he can also be very handy for barbecues.
+
+                     Delivery available on request.",
+                     address: 'Westeros', capacity: 2, minimum_age: 25)
+drogon.user = jon
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610832117/fantasy-ride/dragon_iufqob.jpg')
+drogon.photos.attach(io: file, filename: 'drogon.png', content_type: 'image/png')
+drogon.save!
+drogon.categories_vehicles.create!(category: air)
+drogon.categories_vehicles.create!(category: animal)
+
+puts 'drogon created'
 
 
 
@@ -302,8 +300,8 @@ reservation1.save!
 
 puts 'one reservation done'
 
-start_date = Date.new(2021, 1, 25)
-end_date = start_date + 6
+start_date = Date.new(2021, 1, 27)
+end_date = start_date + 5
 reservation2 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation2.vehicle = drogon
 reservation2.total_price = (reservation2.vehicle.price_per_day ) * 6
