@@ -24,22 +24,20 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { initTotalPrice } from '../plugins/total_price';
 import { initBoostrapModal, initBoostrapModalNavbar } from '../plugins/bootstrap_modal';
 import { initMapbox} from '../plugins/init_mapbox';
+import {initFlatpickr} from '../plugins/flatpickr'
 // import { initCardHover } from '../plugins/card_hover';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  // initTotalPrice();
   initBoostrapModal();
   initMapbox();
   initBoostrapModalNavbar();
-  // initFlatpickr();
-  // initCardHover();
+  initFlatpickr();
 });

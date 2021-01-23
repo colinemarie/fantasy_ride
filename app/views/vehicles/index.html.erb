@@ -34,7 +34,6 @@
             <% vehicle.photos.each do |photo| %>
               <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
             <% end %>
-            <%= link_to ">", vehicle_path(vehicle) ,class: "card-button" %>
             <div class="category-badges">
               <% vehicle.categories.each do |category| %>
                 <div class="badge badge-pill badge-primary category-badge">
@@ -46,7 +45,7 @@
               <div class="card-trip-infos">
                 <div>
                   <h2><%= vehicle.name %></h2>
-                  <h2> <%= vehicle.price_per_day %> € / day </h2>
+                  <p> <%= vehicle.price_per_day %> € / day </p>
                 </div>
               </div>
             <% end %>
