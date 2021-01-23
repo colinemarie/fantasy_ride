@@ -167,7 +167,7 @@ file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610483261/f
 dolorean.photos.attach(io: file, filename: 'dolorean.png', content_type: 'image/png')
 dolorean.save!
 dolorean.categories_vehicles.create!(category: wheels)
-dolorean.categories_vehicles.create!(category: air)
+dolorean.categories_vehicles.create!(category: time)
 
 puts 'dolorean created'
 
@@ -179,7 +179,7 @@ carriage = Vehicle.new(name: "Cinderella's carriage", price_per_day: 467,
                       fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                       mollit anim id est laborum",
                      address: 'Near Castle', capacity: 4, minimum_age: 16)
-carriage.user = myriam
+carriage.user = jon
 file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1610817452/fantasy-ride/cendrillon_c6ubo0.jpg')
 carriage.photos.attach(io: file, filename: 'carriage.png', content_type: 'image/png')
 carriage.save!
@@ -253,6 +253,40 @@ nimbus.categories_vehicles.create!(category: air)
 puts 'nimbus created'
 
 
+hypogriff = Vehicle.new(name: "Harry Potter hypogriff", price_per_day: 467,
+                     description: "The Nimbus 2000 is the perfect broomstick, good speed and exceptional handling. Be careful, not for beginners !
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Poudlard', capacity: 2, minimum_age: 16)
+hypogriff.user = steven
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1611349774/fantasy-ride/hypogriff_zbayzx.jpg')
+hypogriff.photos.attach(io: file, filename: 'hypogriff.png', content_type: 'image/png')
+hypogriff.save!
+hypogriff.categories_vehicles.create!(category: air)
+
+puts 'nimbus created'
+
+falkor = Vehicle.new(name: "Falkor", price_per_day: 467,
+                     description: "Falkor, the white dragon from the NeverEnding story is know to be a lucky charm.
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+                      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                      mollit anim id est laborum",
+                     address: 'Allemagne', capacity: 2, minimum_age: 16)
+falkor.user = steven
+file = URI.open('https://res.cloudinary.com/dw3inosxv/image/upload/v1611349783/fantasy-ride/histoire_sans_fin_x89j7w.webp')
+falkor.photos.attach(io: file, filename: 'falkor.png', content_type: 'image/png')
+falkor.save!
+falkor.categories_vehicles.create!(category: air)
+
+puts 'falkor created'
+
+
+
+
 puts 'vehicles done'
 
 
@@ -263,7 +297,7 @@ end_date = start_date + 2
 reservation1 = Reservation.new(start_date: start_date, end_date: end_date)
 reservation1.vehicle = carpet
 reservation1.total_price = (reservation1.vehicle.price_per_day ) * 2
-reservation1.user = myriam
+reservation1.user = steven
 reservation1.save!
 
 puts 'one reservation done'
