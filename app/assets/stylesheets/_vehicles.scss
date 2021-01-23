@@ -53,6 +53,10 @@ h1 {
   font-style: italic;
 }
 
+#goldenButton {
+  min-width: 300px;
+}
+
 #goldenButton:hover {
   background-color: goldenrod;
   border-color: #C3941D ;
