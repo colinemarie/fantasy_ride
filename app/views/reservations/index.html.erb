@@ -1,45 +1,21 @@
 <div class="container">
   <h1 class="pl-0">My reservations</h1>
+
   <% if @reservations.empty? %>
-    <p>No reservation yet?</p>
-    <p><%= link_to('Give it a try', "/vehicles") %></p>
+    <h4>No reservation yet?</h4>
+    <h4><%= link_to('Give it a try', "/vehicles") %></h4>
 
   <% else %>
-
     <div class="content">
       <div class="cards">
         <% @reservations.each do |reservation| %>
           <% if reservation.status != "cancelled" %>
-            <div class="card-trip">
-              <div class="card-trip-infos">
-                <div>
-                  <div class="d-flex justify-content-between">
-                    <%= link_to vehicle_path(reservation.vehicle) do %>
-                    <h2><%= reservation.vehicle.name %></h2>
-                    <% end %>
-                    <%= link_to cancel_reservation_path(reservation), method: :patch, data: { confirm: "You sure?"}  do %>
-                    <i class="fas fa-trash"></i>
-                    <% end %>
-                  </div>
-                  <div class="badge badge-pill badge-primary">
-                  <p><%= reservation.status %></p>
-                  </div>
-                  <div class="row">
-                    <div class="col-8">
-                      <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  days</h2>
-                      <h2>Starting on <%= reservation.start_date.to_time.strftime('%B %e') %> for <%= reservation.duration %>  day</h2>
-                    </div>
-                    <div class="col-4">
-                      <h2>total price <%= reservation.total_price %>$</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <%= render "reservations/cards", reservation: reservation %>
           <% end %>
-         <% end %>
+        <% end %>
       </div>
     </div>
+
     <h1 class="pl-0">My cancelled reservations</h1>
       <div class="content">
         <div class="cards">

@@ -1,10 +1,11 @@
 .banner {
   margin: 0 auto;
   display: flex;
-  padding: 60px;
+  padding: 20px;
   color: white;
   font-size: 30px;
-  background-image: url('https://source.unsplash.com/hqRZUhvsPtU/1600x900');
+  background-image: url('https://preview.redd.it/iwxui56660o21.jpg?width=1920&format=pjpg&auto=webp&s=7c663a4e609818c49f81f1f36f72bef664509fac');
+  // background-image: url('https://res.cloudinary.com/dw3inosxv/image/upload/v1611329462/fantasy-ride/wbezdc6p1km21_rc6gyr.png');
   // height: 100vh;
   // object-fit: cover;
   margin: auto;
@@ -22,32 +23,49 @@
   font-weight: bold;
   font-size: 50px;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  padding: 50px 0
+  padding: 50px 0;
+  margin: 0px;
 }
 
 .banner .container {
-  padding-top: 100px;
-}
+  padding-top: 130px;
+  margin-left: 60px;
+  }
 
 .searchbar {
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #EFF0F6;
   border: none;
 }
 
 input[type="text"] {
   font-family: Poppins;
-  font-size: 20px;
-  padding: 10px;
+  // font-size: 20px;
+  // padding: 10px;
 }
 
+
+input#query.searchbar {
+  font-size: 25px;
+  width: 600px;
+  padding: 10px 20px;
+  color: $primary;
+}
+
+
 .input-button {
-  padding: 6.5px 20px;
+  padding: 6px 20px;
   border: 2px solid lightgrey;
   background-color: transparent;
   color: lightgrey;
   border-radius: 50%;
 }
+
+.input-button:hover {
+  background-color: $primary;
+}
+
+
 .button:hover  {
 background-color:transparent;
 color:black;

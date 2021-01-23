@@ -1,26 +1,81 @@
 
-<div class="container">
-
-  <%= simple_form_for(@vehicle) do |f| %>
-
+<div class="container form radius mt-3 mb-3">
+  <div class="row justify-content-center">
+    <div class="col-sm-9">
+    <%= simple_form_for(@vehicle) do |f| %>
+    <h1>Add your vehicle</h1>
     <div class="form-inputs">
-      <%= f.input :name, required: true, autofocus: true, placeholder: 'Name of your vehicle'%>
-      <!-- A FINIR JEUDI + explications compliquées de Coline avec des Save -->
-      <%=  f.collection_check_boxes :categories, Category.all, :id, :name, item_label_class: 'my-custom-class'%>
-      <%= f.input :price_per_day, as: :float%>
-      <%= f.input :description, as: :text %>
-      <%= f.input :address, as: :string %>
-      <%= f.input :capacity, as: :integer %>
-      <%= f.input :minimum_age, collection: 6..99 %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Create", class: "btn btn-primary rounded-btn", data: {user: current_user ? true : false} %>
-    </div>
-
-  <% end %>
-
-  <%= link_to "Back", :back %>
+      <div class="input-box">
+        <h2>Find a beautiful name *</h2>
+          <%= f.input :name,
+                      required: true,
+                      autofocus: true,
+                      label: false,
+                      placeholder: "Aladdin's Magic Carpet"%>
+      </div>
+      <div class="input-box">
+        <h2>Check the ways of moving *</h2>
+        <div class="d-flex flex-column">
+          <%=  f.collection_check_boxes :categories, Category.all,
+                                        :id,
+                                        :name,
+                                        include_hidden: false,
+                                        required: true do |b| %>
+            <%= b.label class:"label-checkbox" do%>
+              <%=b.check_box + b.text%>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="input-box">
+        <h2>Fix a price per day *</h2>
+      <%= f.input :price_per_day,
+                  label: false,
+                  placeholder: "1500 €",
+                  as: :float%>
+      </div>
+      <div class="input-box">
+        <h2>Describe in few words your vehicle *</h2>
+        <%= f.input :description,
+                    label: false,
+                    placeholder: "This Magic Carpet will show you a whole new world, unbelievable sights and an indescribable feeling.",
+                    as: :text %>
+      </div>
+      <div class="input-box">
+        <h2>Where is it located ? *</h2>
+        <%= f.input :address,
+                    label: false,
+                    placeholder: "Place Jean Jaurès, 93100 Montreuil",
+                    as: :string %>
+      </div>
+      <div class="input-box">
+        <h2>Define the maximum number of passengers *</h2>
+        <%= f.input :capacity,
+                    as: :integer,
+                    placeholder: "5",
+                    label: false %>
+      </div>
+      <div class="input-box">
+        <h2>Pick the minimum age to drive it *</h2>
+        <%= f.input :minimum_age,
+                    collection: 6..99,
+                    label: false %>
+      </div>
+      <div class="input-box">
+        <h2>Add some photos *</h2>
+        <%= f.input :photos,
+                    required: true,
+                    as: :file,
+                    label: false,
+                    input_html: { multiple: true }
+                    %>
+      </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Create", class: "btn btn-primary rounded-btn btn-lg btn-block", data: {user: current_user ? true : false} %>
+      </div>
+    <% end %>
+    <p><i class="fas fa-undo text-primary mt-5 mb-4"></i>   <%= link_to('Retour au catalogue', "/vehicles") %></p>    </div>
+  </div>
 
 </div>

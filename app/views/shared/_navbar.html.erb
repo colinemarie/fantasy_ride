@@ -12,11 +12,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item active">
-        <%= link_to "Hire out your ride", "#", class: "btn btn-outline-dark rounded-btn no-border" %>
+        <%= link_to "My garage", my_vehicles_path, class: "btn btn-outline-dark rounded-btn no-border" %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "#{current_user.first_name}'s reservations", reservations_path, class: "btn btn-outline-dark rounded-btn no-border" %>
+          <%= link_to "My journeys", reservations_path, class: "btn btn-outline-dark rounded-btn no-border" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary rounded-btn", method: :delete %>
@@ -41,7 +41,7 @@
 <!-- Modal for Log in -->
 <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="logInLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content radius">
       <div class="modal-header">
         <h5 class="modal-title" id="logInLabel">Log in</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -86,7 +86,7 @@
 <!-- Modal for Sign Up-->
 <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUpLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content radius">
       <div class="modal-header">
         <h5 class="modal-title" id="signUpLabel">Sign up</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -107,8 +107,7 @@
                         label: false %>
             <%= f.input :age, collection: 12..130,
                         input_html: { autocomplete: "age" },
-                        label: false,
-                        placeholder: 'Age' %>
+                        label: false %>
             <%= f.input :photo, as: :file%>
             <%= f.input :email,
                         required: true,
@@ -121,12 +120,12 @@
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" },
                         label: false,
-                        placeholder: 'password' %>
+                        placeholder: 'Password' %>
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" },
                         label: false,
-                        placeholder: 'confirm password' %>
+                        placeholder: 'Confirm password' %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block rounded-btn" %>

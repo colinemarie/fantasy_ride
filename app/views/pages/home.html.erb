@@ -1,10 +1,12 @@
 <div class="banner">
-  <div class="container">
+  <div class="container home-container">
     <h1>Get away with </br>fantasy!</h1>
-    <%= form_tag vehicles_path, method: :get do %>
-    <%= text_field_tag :query, nil, placeholder: 'Search a ride', class: "searchbar" %>
-    <%= submit_tag ">", class: "input-button" %>
-    <% end %>
-    <%= link_to "Discover all", vehicles_path, class: "btn btn-dark rounded-btn m-0" %>
+    <div class="mb-3">
+      <%= form_tag vehicles_path, method: :get do %>
+      <%= text_field_tag :query, nil, placeholder: 'Search for a ride from your favorite movies', class: "searchbar" %>
+      <%= submit_tag ">", class: "input-button" %>
+      <% end %>
+    </div>
+    <%= link_to "Not inspired? Discover all vehicles!", vehicles_path, class: "btn btn-primary btn-lg rounded-btn" %>
   </div>
 </div>

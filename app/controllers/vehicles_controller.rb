@@ -26,7 +26,8 @@ class VehiclesController < ApplicationController
     @markers = {
       lat: @vehicle.latitude,
       lng: @vehicle.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { vehicle: @vehicle })
+      infoWindow: render_to_string(partial: "info_window", locals: { vehicle: @vehicle }),
+      # image_url: helpers.asset_url('https://res.cloudinary.com/dw3inosxv/image/upload/v1611301724/logo_kd2zw3.png')
     }
   end
 
