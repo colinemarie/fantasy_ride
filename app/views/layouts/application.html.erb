@@ -13,8 +13,10 @@
   </head>
 
   <body>
+    <header class="main-header">
+      <%= render 'shared/navbar' %>
+    </header>
     <div class="page-wrap">
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     </div>
