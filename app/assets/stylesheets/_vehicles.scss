@@ -53,6 +53,23 @@ h1 {
   font-style: italic;
 }
 
+#goldenButton:hover {
+  background-color: goldenrod;
+  border-color: #C3941D ;
+}
+
+.form-icons {
+  position: relative;
+    input { text-indent: 30px; }
+  .fa-plus {
+    position: absolute;
+    top: 15px;
+    left: 24px;
+    font-size: 20px;
+    color: white;
+  }
+}
+
 // .notification {
 //   display: flex;
 //   align-items: center;

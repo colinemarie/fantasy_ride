@@ -107,8 +107,7 @@
                         label: false %>
             <%= f.input :age, collection: 12..130,
                         input_html: { autocomplete: "age" },
-                        label: false,
-                        placeholder: 'Age' %>
+                        label: false %>
             <%= f.input :photo, as: :file%>
             <%= f.input :email,
                         required: true,
@@ -121,12 +120,12 @@
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" },
                         label: false,
-                        placeholder: 'password' %>
+                        placeholder: 'Password' %>
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" },
                         label: false,
-                        placeholder: 'confirm password' %>
+                        placeholder: 'Confirm password' %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block rounded-btn" %>

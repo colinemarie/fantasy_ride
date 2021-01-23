@@ -1,11 +1,9 @@
 <div class="container">
   <h1 class="pl-0">My reservations</h1>
   <% if @reservations.empty? %>
-    <p>No reservation yet?</p>
-    <p><%= link_to('Give it a try', "/vehicles") %></p>
-
+    <h4>No reservation yet?</h4>
+    <h4><%= link_to('Give it a try', "/vehicles") %></h4>
   <% else %>
-
     <div class="content">
       <div class="cards">
         <% @reservations.each do |reservation| %>
