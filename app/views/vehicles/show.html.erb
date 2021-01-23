@@ -2,8 +2,12 @@
 <div class="container">
   <h1><%= @vehicle.name %></h1>
     <div class="first-card-info">
+        <% @vehicle.categories.each do |category| %>
+          <div class="badge badge-pill badge-primary category-badge p-2 bagde-show">
+            <%= category.name %>
+          </div>
+        <% end %>
     </div>
-
   <div class="row">
     <div class="col-md-8">
       <!-- bloc photo -->
@@ -11,13 +15,6 @@
         <% @vehicle.photos.each do |photo| %>
           <%= cl_image_tag photo.key, :class=>"radius vehicle-photo" %>
         <% end %>
-        <div class="category-badges">
-          <% @vehicle.categories.each do |category| %>
-            <div class="badge badge-pill badge-primary category-badge">
-              <p><%= category.name %></p>
-            </div>
-          <% end %>
-        </div>
       </div>
 
       <!-- bloc infos et description -->
