@@ -13,6 +13,10 @@
           <% vehicle.photos.each do |photo| %>
             <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
           <% end %>
+          <div class="manage-vehicle-pictos">
+            <%= link_to "Edit", edit_vehicle_path(vehicle), :confirm => "Are you sure" %>
+            <%= link_to "Delete", vehicle_path(vehicle), :confirm => "Are you sure", :method => :delete%>
+          </div>
           <div class="category-badges">
             <% vehicle.categories.each do |category| %>
               <div class="badge badge-pill badge-primary category-badge">
@@ -22,7 +26,7 @@
           </div>
           <%= link_to my_vehicle_vehicle_reservations_path(vehicle) do  %>
             <div class="card-trip-infos">
-              <h2><%= vehicle.name %> </h2>
+              <h2><%= vehicle.name %></h2>
               <h2><%= number_with_delimiter(vehicle.price_per_day, :delimiter => ',') %> € per day</h2>
             </div>
           <% end %>
@@ -34,5 +38,7 @@
 
 
 
-
-
+<!--
+<a data-confirm="You sure?" rel="nofollow" data-method="patch" href="/reservations/13/cancel">
+          <i class="fas fa-trash"></i>
+</a> -->
