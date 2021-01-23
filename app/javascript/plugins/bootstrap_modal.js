@@ -7,6 +7,18 @@ const initBoostrapModal = () => {
       }
     });
   });
+
 }
 
-export {initBoostrapModal}
+const initBoostrapModalNavbar = () => {
+  $(document).ready(function() {
+    $('#garage-button').on('click', function(e){
+      if ($('#garage-button').data('user') === false) {
+        $('#logIn').modal('show');
+        e.preventDefault();
+      }
+    });
+  });
+}
+
+export {initBoostrapModal, initBoostrapModalNavbar}
