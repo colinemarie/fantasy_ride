@@ -29,7 +29,7 @@ import "../plugins/flatpickr"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { initTotalPrice } from '../plugins/total_price';
-import { initBoostrapModal } from '../plugins/bootstrap_modal';
+import { initBoostrapModal, initBoostrapModalNavbar } from '../plugins/bootstrap_modal';
 import { initMapbox} from '../plugins/init_mapbox';
 // import { initCardHover } from '../plugins/card_hover';
 
@@ -39,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   // initTotalPrice();
   initBoostrapModal();
   initMapbox();
+  initBoostrapModalNavbar();
   // initFlatpickr();
   // initCardHover();
 });

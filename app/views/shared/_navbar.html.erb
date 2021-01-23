@@ -12,7 +12,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item active">
-        <%= link_to "My garage", my_vehicles_path, class: "btn btn-outline-dark rounded-btn no-border" %>
+        <%= link_to "My garage", my_vehicles_path, class: "btn btn-outline-dark rounded-btn no-border", id: "garage-button",data: {user: current_user ? true : false} %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item active">
