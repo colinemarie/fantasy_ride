@@ -14,10 +14,10 @@
             <%= cl_image_tag photo.key, crop: :fill, class: "card-img" %>
           <% end %>
           <div class="manage-vehicle-pictos">
-            <%= link_to edit_vehicle_path(vehicle), :confirm => "Are you sure ?" do %>
+            <%= link_to edit_vehicle_path(vehicle), data: {:confirm => "Don't you like the photo?",  title: 'Are you sure?'} do %>
               <i class="fas fa-pen mr-2"></i>
             <% end %>
-            <%= link_to vehicle_path(vehicle), data: {:confirm => "Are you sure ?"}, :method => :delete do %>
+            <%= link_to vehicle_path(vehicle), data: {:confirm => "Too bad, it was a good ride",  title: 'Are you sure?'}, :method => :delete do %>
               <i class="fas fa-trash"></i>
             <% end %>
 
@@ -41,9 +41,3 @@
   </div>
 </div>
 
-
-
-<!--
-<a data-confirm="You sure?" rel="nofollow" data-method="patch" href="/reservations/13/cancel">
-          <i class="fas fa-trash"></i>
-</a> -->

@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'cloudinary', '~> 1.16.0'
+gem 'data-confirm-modal'
 
 # Gemfile
 gem 'devise'
